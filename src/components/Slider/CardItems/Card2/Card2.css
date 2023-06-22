@@ -1,0 +1,45 @@
+#card2Container{
+    height: 86vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#card2ImgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+#card2ImgContainer img{
+    width: 350px;
+}
+
+#card2Contentcontainer{
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 50px;
+}
+
+#card2Contentcontainer button{
+    margin-top: 20px;
+    width: 320px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(217, 181, 1);
+    box-shadow: 2px 2px rgb(15, 15, 15);
+    border: 2px solid rgb(217, 181, 1);
+    color: white;
+}
+#card2Contentcontainer button:hover{
+    background-color: white;
+    color: rgb(217, 181, 1);
+    box-shadow: none;
+}
