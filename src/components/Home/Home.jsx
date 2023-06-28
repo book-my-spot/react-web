@@ -2,6 +2,7 @@ import React from 'react'
 import "./Home.css"
 import axios from 'axios';
 import Card from './ListCard/Card';
+import { API_URL } from './../Links';
 import { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -58,9 +59,8 @@ function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://cnhjhmy5w5.execute-api.ap-southeast-2.amazonaws.com/dev/config');
+      const response = await axios.get(API_URL);
       setFilterdata(response.data.filters);
-       console.log(response);
     } catch (error) {
       console.log('Error fetching data:', error);
     }
