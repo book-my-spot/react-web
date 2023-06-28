@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 #mainHomeContainer{
     background-color: rgba(218, 217, 217, 0.216);
     height: 100vh;
@@ -46,3 +45,9 @@
     right: 10px;
     color: rgb(21, 21, 21);
 }
+
+@media screen and (max-width: 365px) {
+    #searchinput{
+        width: 92vw;
+    }
+  }

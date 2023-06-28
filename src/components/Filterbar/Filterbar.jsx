@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Filterbar.css"
-import { useState } from 'react';
-
-function Filterbar({ onApplyFilter }) {
+import { useState} from 'react';
+function Filterbar(props) {
+    const {onApplyFilter,filterComponentData} = props
     const [Type, setType] = useState(null);
     const [Category, setCategory] = useState(null);
     const [Distance, setDistance] = useState(null);
@@ -29,23 +29,30 @@ function Filterbar({ onApplyFilter }) {
         values = [Type,Category,Distance];
         onApplyFilter(values);
     }
+
+    // console.log(filterComponentData.conditions);
+    let serviceTypevalues = filterComponentData.conditions[0];
+    let genderValues = filterComponentData.conditions[1];
+    let distanceValues = filterComponentData.conditions[2];
+    // console.log(typevalues);
     return (
         <div className="filter-options-container" id='filteroptionsContainer'>
             <h2 id='mainheadfilter'>Filter</h2>
-            <span>Type</span>
+            <span>{serviceTypevalues.title}</span>
             <div className="filter type-container" id="typefilter">
                 <ul onClick={(event) => {
                     if (event.target.tagName === 'LI') {
                         handleTypeClick(event.target.textContent);
+                        console.log(event.target.textContent);
                     }
                 }}>
-                    <li className={Type === 'All' ? 'selectedfilterli' : ''}>All</li>
-                    <li className={Type === 'Haircuts' ? 'selectedfilterli' : ''}>Haircuts</li>
-                    <li className={Type === 'Make up' ? 'selectedfilterli' : ''}>Make up</li>
-                    <li className={Type === 'Manicure' ? 'selectedfilterli' : ''}>Manicure</li>
+                    <li className={Type === `${serviceTypevalues.options[0].title}` ? 'selectedfilterli' : ''}>{serviceTypevalues.options[0].title}</li>
+                    <li className={Type === `${serviceTypevalues.options[1].title}` ? 'selectedfilterli' : ''}>{serviceTypevalues.options[1].title}</li>
+                    <li className={Type === `${serviceTypevalues.options[2].title}` ? 'selectedfilterli' : ''}>{serviceTypevalues.options[2].title}</li>
+                    <li className={Type === `${serviceTypevalues.options[3].title}` ? 'selectedfilterli' : ''}>{serviceTypevalues.options[3].title}</li>
                 </ul>
             </div>
-            <span>Category</span>
+            <span>{genderValues.title}</span>
             <div className="filter category-container" id="categoryfilter">
 
                 <ul
@@ -55,13 +62,13 @@ function Filterbar({ onApplyFilter }) {
                     }
                 }}
                 >
-                    <li className={Category === 'Unisex' ? 'selectedfilterli' : ''}>Unisex</li>
-                    <li className={Category === 'Women' ? 'selectedfilterli' : ''}>Women</li>
-                    <li className={Category === 'Men' ? 'selectedfilterli' : ''}>Men</li>
+                    <li className={Category === `${genderValues.options[0].title}` ? 'selectedfilterli' : ''}>{genderValues.options[0].title}</li>
+                    <li className={Category === `${genderValues.options[1].title}` ? 'selectedfilterli' : ''}>{genderValues.options[1].title}</li>
+                    <li className={Category === `${genderValues.options[2].title}` ? 'selectedfilterli' : ''}>{genderValues.options[2].title}</li>
                 </ul>
 
             </div>
-            <span>Distance</span>
+            <span>{distanceValues.title}</span>
             <div className="filter distance-container" id="distancefilter">
                 <ul 
                 onClick={(event)=>{
@@ -70,10 +77,10 @@ function Filterbar({ onApplyFilter }) {
                     }
                 }}
                 >
-                    <li className={Distance === 'less than 1km' ? 'selectedfilterli' : ''}>less than 1km</li>
-                    <li className={Distance === '1-5 km' ? 'selectedfilterli' : ''}>1-5 km</li>
-                    <li className={Distance === '5-10 km' ? 'selectedfilterli' : ''}>5-10 km</li>
-                    <li className={Distance === 'greater than 10km' ? 'selectedfilterli' : ''}>greater than 10km</li>
+                    <li className={Distance === `${distanceValues.options[0].title}` ? 'selectedfilterli' : ''}>{distanceValues.options[0].title}</li>
+                    <li className={Distance === `${distanceValues.options[1].title}` ? 'selectedfilterli' : ''}>{distanceValues.options[1].title}</li>
+                    <li className={Distance === `${distanceValues.options[2].title}` ? 'selectedfilterli' : ''}>{distanceValues.options[2].title}</li>
+                    {/* <li className={Distance === 'greater than 10km' ? 'selectedfilterli' : ''}>{distanceValues.options[3].title}</li> */}
                 </ul>
             </div>
             <div className="filter-button-container" id='filterbuttonscontainer'>

@@ -1,7 +1,8 @@
 import React from 'react'
 import "./Home.css"
+import axios from 'axios';
 import Card from './ListCard/Card';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -49,6 +50,22 @@ function Home() {
     console.log('Filter values from home component are:', values);
   };
 
+  const [filterdata, setFilterdata] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://cnhjhmy5w5.execute-api.ap-southeast-2.amazonaws.com/dev/config');
+      setFilterdata(response.data.filters);
+       console.log(response);
+    } catch (error) {
+      console.log('Error fetching data:', error);
+    }
+  };
+  
 
   return (
     <>
@@ -60,7 +77,7 @@ function Home() {
           <input type="text" placeholder='Search Here' id='searchinput' />
         </div>
         {showFilter && (
-         <Filterbar onApplyFilter={handleFilterApply}/>
+         <Filterbar onApplyFilter={handleFilterApply} filterComponentData={filterdata}/>
         )}
         <div className="results-text-container" id='resultstextcontainer'>
           <h2>Results "Salon"</h2>

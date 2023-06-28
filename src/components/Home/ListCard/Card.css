@@ -41,6 +41,7 @@
     flex-direction: column;
 }
 #cardContentContainer h2{
+    width: 90%;
 font-size: 1.05em;
 margin: 0px;
 }
@@ -63,3 +64,19 @@ margin: 0px;
 #numberResultsContainer div span{
     margin-left: 2px;
 }
+
+@media screen and (max-width: 360px) {
+    #cardContentContainer h2{
+        font-size: 0.95em;
+        width: 90%;
+    }
+    #cardContentContainer h4{
+        font-size: 0.73em;
+    }
+    #HomeBackimgContainer img{
+        width: 65px;
+        height: 65px;
+        border-radius: 10px;
+    }
+   
+  }
