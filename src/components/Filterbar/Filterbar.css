@@ -1,76 +1,77 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#mainheadfilter{
-    margin-left: 5px;
+#mainheadfilter {
+  margin-left: 5px;
 }
-#filteroptionsContainer{
-    padding: 5px;
-     font-size: 0.85em;
+#filteroptionsContainer {
+  padding: 5px;
+  font-size: 0.85em;
 }
-#filteroptionsContainer span{
-    margin: 5px;
+#filteroptionsContainer span {
+  margin: 5px;
 }
-.filter{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-    overflow-x: auto;
-    white-space: nowrap;
+.filter {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .filter ul {
-   display: flex;
-   justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
-.filter ul li{
-    margin: 5px;
-    border: 2px solid rgb(235, 196, 3);
-    padding: 6px 10px;
-    border-radius: 5px;
-    list-style: none;
+.filter ul li {
+  margin: 5px;
+  border: 2px solid rgb(235, 196, 3);
+  padding: 6px 10px;
+  border-radius: 5px;
+  list-style: none;
+  cursor: pointer;
 }
-#filterbuttonscontainer{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    justify-content: space-evenly;
-    width: 100%;
+#filterbuttonscontainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-evenly;
+  width: 100%;
 }
-#filterresetbtn{
-   width: 150px;
-   height: 38px;
-    border-radius: 5px;
-    border: none; 
-    border: 2px solid rgb(217, 181, 1);
-    background-color: rgb(217, 181, 1);
-    color: rgb(255, 255, 255);
-    transition: all 0.4s;
+#filterresetbtn {
+  width: 150px;
+  height: 38px;
+  border-radius: 5px;
+  border: none;
+  border: 2px solid rgb(217, 181, 1);
+  background-color: rgb(217, 181, 1);
+  color: rgb(255, 255, 255);
+  transition: all 0.4s;
 }
-#filterapplybtn{
-    width: 150px;
-    height: 38px;
-     border-radius: 5px;
-     border: none;
-     background-color: rgb(217, 181, 1);
-     border: 2px solid rgb(217, 181, 1);
-    color: rgb(255, 255, 255);
-    transition: all 0.4s;
+#filterapplybtn {
+  width: 150px;
+  height: 38px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(217, 181, 1);
+  border: 2px solid rgb(217, 181, 1);
+  color: rgb(255, 255, 255);
+  transition: all 0.4s;
 }
-#filterresetbtn:hover{
-    color: rgb(217, 181, 1);
-    background-color:rgb(255, 255, 255);
-    transform: scale(1.1);
+#filterresetbtn:hover {
+  color: rgb(217, 181, 1);
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.1);
 }
 
-#filterapplybtn:hover{
-    background-color: white;
-    color: rgb(235, 196, 3);
-    transform: scale(1.1);
+#filterapplybtn:hover {
+  background-color: white;
+  color: rgb(235, 196, 3);
+  transform: scale(1.1);
 }
-.selectedfilterli{
-    background-color: rgb(235, 196, 3);
-    color: white;
+.selectedfilterli {
+  background-color: rgb(235, 196, 3);
+  color: white;
 }

@@ -1,65 +1,81 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#HomcardContainer{
-    display: flex;
-    margin: 15px;
-    height: 90px;
-    border-radius: 5px;
-    position: relative;
-    background-color: rgb(255, 255, 255);
+#HomcardContainer {
+  display: flex;
+  margin: 15px;
+  height: 90px;
+  border-radius: 5px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
 }
-#HomcardContainer:hover{
-    transition: all 0.6s;
-    transform: scale(1.05);
+#HomcardContainer:hover {
+  transition: all 0.6s;
+  transform: scale(1.05);
 }
-#HomeBackimgContainer{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    display: flex;
-    align-items: center;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#HomeBackimgContainer {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: flex;
+  align-items: center;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#HomeBackimgContainer img{
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
+#HomeBackimgContainer img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
 }
-#cardContentContainer{
-    width: 75%;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    padding: 10px;
-    justify-content: space-between;
-    flex-direction: column;
+#cardContentContainer {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  justify-content: space-between;
+  flex-direction: column;
 }
-#cardContentContainer h2{
-font-size: 1.05em;
-margin: 0px;
+#cardContentContainer h2 {
+  width: 90%;
+  font-size: 1.05em;
+  margin: 0px;
 }
-#cardContentContainer h4{
-    font-size: 0.8em;
-    font-weight: 200;
-    opacity: 80%;
+#cardContentContainer h4 {
+  font-size: 0.8em;
+  font-weight: 200;
+  opacity: 80%;
 }
-#bookmarkicon{
-    position: absolute;
-    right: 10px;
-    top: 10px;
+#bookmarkicon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
-#numberResultsContainer{
-    display: flex;
+#numberResultsContainer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+#numberResultsContainer div span {
+  margin-left: 2px;
+}
+
+@media screen and (max-width: 360px) {
+  #cardContentContainer h2 {
+    font-size: 0.95em;
     width: 90%;
-    justify-content: space-between;
-    font-size: 0.8em;
-}
-#numberResultsContainer div span{
-    margin-left: 2px;
+  }
+  #cardContentContainer h4 {
+    font-size: 0.73em;
+  }
+  #HomeBackimgContainer img {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+  }
 }
