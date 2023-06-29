@@ -1,23 +1,19 @@
-import Home from  "./components/Home/Home"
-import Carousel from "./components/Slider/Carousel"
-import { BrowserRouter as Router,Route ,Routes} from 'react-router-dom';
+import React from 'react';
+import Home from './components/Home/Home';
+import Carousel from './components/Slider/Carousel';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-<>
-
-<Router>
-  
-  <Routes>
-<Route path='/' exact element={<Carousel/>}/>
-<Route path='/home' exact element={<Home/>}/>
-
-</Routes>
-</Router>
-
-
-</>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' exact element={<Carousel />} />
+          <Route path='/home' exact element={<Home />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
