@@ -4,8 +4,7 @@ import './Card3.css';
 import { NavLink } from 'react-router-dom';
 import backgroundImg3 from './../../../Images/calander.svg';
 
-function Card3(props) {
-  const { card3data } = props;
+function Card3({card3data}) {
 
   return (
     <div className='card-Container' id='card3Container'>

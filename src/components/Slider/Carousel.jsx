@@ -44,7 +44,7 @@ const Carousel = () => {
 
   return (
     <div className='main-Container'>
-      <div className='carousel-Container'>
+      <section className='carousel-Container'>
         {carouselData !== null ? (
           <Slider {...settings} className='slider-Container' ref={sliderRef}>
             <Card1 card1data={carouselData[0]} />
@@ -54,7 +54,7 @@ const Carousel = () => {
         ) : (
           <p>Loading data...</p>
         )}
-      </div>
+      </section>
     </div>
   );
 };

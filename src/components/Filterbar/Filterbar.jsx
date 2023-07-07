@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import './Filterbar.css';
 import { useState } from 'react';
 
-function Filterbar(props) {
-  const { onApplyFilter, filterComponentData } = props;
+function Filterbar({ onApplyFilter, filterComponentData }) {
   const [Type, setType] = useState(null);
   const [Category, setCategory] = useState(null);
   const [Distance, setDistance] = useState(null);

@@ -39,7 +39,7 @@
   color: white;
 }
 
-#card3Contentcontainer button:hover {
+#card3Contentcontainer button:active {
   background-color: white;
   color: rgb(217, 181, 1);
   box-shadow: none;

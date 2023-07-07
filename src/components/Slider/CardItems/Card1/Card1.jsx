@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Card1.css';
 
-function Card1(props) {
-  const cardData = props.card1data;
-  const originalTitle = cardData.title;
+function Card1({card1data}) {
+  const originalTitle = card1data.title;
   const greetingEmoji = '👋';
   const titleParts = originalTitle.split(greetingEmoji);
 
@@ -18,7 +17,7 @@ function Card1(props) {
               {greetingEmoji}
             </h2>
             <h1>{titleParts[1]}</h1>
-            <p>{cardData.subtitle}</p>
+            <p>{card1data.subtitle}</p>
           </div>
         </div>
       </div>

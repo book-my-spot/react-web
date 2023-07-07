@@ -45,28 +45,30 @@
   height: 38px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
   border: 2px solid rgb(217, 181, 1);
   background-color: rgb(217, 181, 1);
   color: rgb(255, 255, 255);
-  transition: all 0.4s;
+  transition: all 0.1s;
 }
 #filterapplybtn {
   width: 150px;
   height: 38px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
   background-color: rgb(217, 181, 1);
   border: 2px solid rgb(217, 181, 1);
   color: rgb(255, 255, 255);
-  transition: all 0.4s;
+  transition: all 0.1s;
 }
-#filterresetbtn:hover {
+#filterresetbtn:active{
   color: rgb(217, 181, 1);
   background-color: rgb(255, 255, 255);
   transform: scale(1.1);
 }
 
-#filterapplybtn:hover {
+#filterapplybtn:active {
   background-color: white;
   color: rgb(235, 196, 3);
   transform: scale(1.1);

@@ -38,7 +38,7 @@
   border: 2px solid rgb(217, 181, 1);
   color: white;
 }
-#card2Contentcontainer button:hover {
+#card2Contentcontainer button:active {
   background-color: white;
   color: rgb(217, 181, 1);
   box-shadow: none;
