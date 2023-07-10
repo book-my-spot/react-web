@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import axios from 'axios';
 import Card from './ListCard/Card';
-import { FILTER_DATA_BASE_URL, LIST_DATA_BASE_URL } from '../apiUrls';
+import { CAROUSEL_AND_FILTER_DATA_BASE_URL, LIST_DATA_BASE_URL } from '../apiUrls';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +23,7 @@ function Home() {
 
   const fetchFilterData = async () => {
     try {
-      const response = await axios.get(FILTER_DATA_BASE_URL);
+      const response = await axios.get(CAROUSEL_AND_FILTER_DATA_BASE_URL);
       setFilterdata(response.data.filters);
     } catch (error) {
       console.log('Error fetching data:', error);
