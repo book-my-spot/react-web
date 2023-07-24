@@ -33,14 +33,14 @@
   list-style: none;
   cursor: pointer;
 }
-#filterbuttonscontainer {
+#filterButtonContainer {
   display: flex;
   align-items: center;
   margin-top: 10px;
   justify-content: space-evenly;
   width: 100%;
 }
-#filterresetbtn {
+#filterResetbtn {
   width: 150px;
   height: 38px;
   border-radius: 5px;
@@ -51,7 +51,7 @@
   color: rgb(255, 255, 255);
   transition: all 0.1s;
 }
-#filterapplybtn {
+#filterApplybtn {
   width: 150px;
   height: 38px;
   border-radius: 5px;
@@ -62,13 +62,13 @@
   color: rgb(255, 255, 255);
   transition: all 0.1s;
 }
-#filterresetbtn:active{
+#filterResetbtn:active{
   color: rgb(217, 181, 1);
   background-color: rgb(255, 255, 255);
   transform: scale(1.1);
 }
 
-#filterapplybtn:active {
+#filterApplybtn:active {
   background-color: white;
   color: rgb(235, 196, 3);
   transform: scale(1.1);

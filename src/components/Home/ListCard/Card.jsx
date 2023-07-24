@@ -13,11 +13,11 @@ function Card({ properties }) {
   let image = properties.image_url;
   // let shopDistance = properties.distance;
   // let shopRatings = properties.ratings;
-  console.log(properties);
+  // console.log(properties);
   return (
     <>
-      <div className='main-Card-Container' id='HomcardContainer'>
-        <div className='Home-Backimg-Container' id='HomeBackimgContainer'>
+      <div className='mainCardContainer' id='HomcardContainer'>
+        <div className='HomeBackimgContainer' id='HomeBackimgContainer'>
           {image != undefined ? (<img
             src={image}
             alt='salon image'
@@ -35,10 +35,10 @@ function Card({ properties }) {
           )
           }
         </div>
-        <div className='card-Content-Container' id='cardContentContainer'>
+        <div className='cardContentContainer' id='cardContentContainer'>
           <h2>{shopName}</h2>
           <h4>{shopAddress}</h4>
-          <div className='number-Results-Container' id='numberResultsContainer'>
+          <div className='numberResultsContainer' id='numberResultsContainer'>
             <div className='distance-Container' id='distanceContainer'>
               <FontAwesomeIcon
                 icon={faLocationDot}
@@ -47,7 +47,7 @@ function Card({ properties }) {
               />{' '}
               <span>2 km</span>
             </div>
-            <div className='ratings-Container' id='ratingsContainer'>
+            <div className='ratingsContainer' id='ratingsContainer'>
               <FontAwesomeIcon icon={faStarHalf} style={{ color: '#fff70f' }} id='staricon' />
               <span>4.3</span>
             </div>

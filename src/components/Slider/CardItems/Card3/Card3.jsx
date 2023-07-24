@@ -7,11 +7,11 @@ import backgroundImg3 from './../../../Images/calander.svg';
 function Card3({card3data}) {
 
   return (
-    <div className='card-Container' id='card3Container'>
-      <div className='card-Img-Container' id='card3ImgContainer'>
+    <div className='cardContainer' id='card3Container'>
+      <div className='cardImgContainer' id='card3ImgContainer'>
         <img src={backgroundImg3} alt='bookingImg' srcSet='' />
       </div>
-      <div className='card-Content-container' id='card3Contentcontainer'>
+      <div className='cardContentcontainer' id='card3Contentcontainer'>
         <h2>{card3data.title}</h2>
         <NavLink to={'/home'}>
           <button>Next</button>

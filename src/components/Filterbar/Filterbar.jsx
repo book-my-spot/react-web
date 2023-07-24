@@ -32,10 +32,10 @@ function Filterbar({ onApplyFilter, filterComponentData }) {
   let distanceValues = filterComponentData.conditions[2];
 
   return (
-    <div className='filter-options-container' id='filteroptionsContainer'>
+    <div className='filterOptionsContainer' id='filteroptionsContainer'>
       <h2 id='mainheadfilter'>Filter</h2>
       <span>{serviceTypevalues.title}</span>
-      <div className='filter type-container' id='typefilter'>
+      <div className='filter typeContainer' id='typeFilter'>
         <ul
           onClick={(event) => {
             if (event.target.tagName === 'LI') {
@@ -52,7 +52,7 @@ function Filterbar({ onApplyFilter, filterComponentData }) {
       </div>
 
       <span>{genderValues.title}</span>
-      <div className='filter category-container' id='categoryfilter'>
+      <div className='filter categoryContainer' id='categoryFilter'>
         <ul
           onClick={(event) => {
             if (event.target.tagName === 'LI') {
@@ -69,7 +69,7 @@ function Filterbar({ onApplyFilter, filterComponentData }) {
       </div>
 
       <span>{distanceValues.title}</span>
-      <div className='filter distance-container' id='distancefilter'>
+      <div className='filter distanceContainer' id='distanceFilter'>
         <ul
           onClick={(event) => {
             if (event.target.tagName === 'LI') {
@@ -85,11 +85,11 @@ function Filterbar({ onApplyFilter, filterComponentData }) {
         </ul>
       </div>
 
-      <div className='filter-button-container' id='filterbuttonscontainer'>
-        <button id='filterresetbtn' onClick={handleReset}>
+      <div className='filterButtonContainer' id='filterButtonContainer'>
+        <button id='filterResetbtn' onClick={handleReset}>
           Reset
         </button>
-        <button id='filterapplybtn' onClick={handleapply}>
+        <button id='filterApplybtn' onClick={handleapply}>
           Apply Filter
         </button>
       </div>

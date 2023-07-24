@@ -50,17 +50,17 @@ function Home() {
   return (
     <>
       {listdata !== null && filterdata != null ? (
-        <div className='main-Home-Container' id='mainHomeContainer'>
+        <div className='mainHomeContainer' id='mainHomeContainer'>
           <section>
-            <div className='search-input-container' id='searchinputcontainer'>
+            <div className='searchInputContainer' id='searchInputContainer'>
               <FontAwesomeIcon icon={faMagnifyingGlass} id='searchIcon' />
               <FontAwesomeIcon icon={faBars} id='filterIcon' onClick={handleFilterClick} />
-              <input type='text' placeholder='Search Here' id='searchinput' />
+              <input type='text' placeholder='Search Here' id='searchInput' />
             </div>
             {showFilter && (
               <Filterbar onApplyFilter={handleFilterApply} filterComponentData={filterdata} />
             )}
-            <div className='results-text-container' id='resultstextcontainer'>
+            <div className='resultsTextContainer' id='resultsTextContainer'>
               <h2>Results &ldquo;Salon&rdquo;</h2>
               <span>12,289 found</span>
             </div>
