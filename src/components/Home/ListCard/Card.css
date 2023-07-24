@@ -7,7 +7,7 @@
 #HomcardContainer {
   display: flex;
   margin: 15px;
-  height: 90px;
+  height: 105px;
   border-radius: 5px;
   position: relative;
   background-color: rgb(255, 255, 255);
@@ -22,13 +22,14 @@
   display: flex;
   align-items: center;
   width: 25%;
+  /* background-color: red; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 #HomeBackimgContainer img {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   border-radius: 10px;
 }
 #cardContentContainer {
@@ -39,14 +40,15 @@
   padding: 10px;
   justify-content: space-between;
   flex-direction: column;
+  /* background-color: red; */
 }
 #cardContentContainer h2 {
   width: 90%;
-  font-size: 1.05em;
+  font-size: 0.97em;
   margin: 0px;
 }
 #cardContentContainer h4 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: 200;
   opacity: 80%;
 }
@@ -60,22 +62,76 @@
   width: 90%;
   justify-content: space-between;
   font-size: 0.8em;
+  margin-top: 4px;
+  /* background-color: red; */
 }
 #numberResultsContainer div span {
   margin-left: 2px;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 400px) {
   #cardContentContainer h2 {
-    font-size: 0.95em;
+    font-size: 0.90em;
     width: 90%;
   }
   #cardContentContainer h4 {
-    font-size: 0.73em;
+    font-size: 0.67em;
   }
   #HomeBackimgContainer img {
-    width: 65px;
-    height: 65px;
+    width: 72px;
+    height: 72px;
     border-radius: 10px;
+  }
+  #HomcardContainer{
+    height: 102px;
+  }
+  
+}
+
+
+@media screen and (max-width: 370px){
+  
+  #cardContentContainer h2 {
+    font-size: 0.87em;
+    width: 90%;
+  }
+  #cardContentContainer h4 {
+    font-size: 0.6em;
+  }
+  #HomeBackimgContainer img {
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    margin-right: -8px;
+  }
+  #HomcardContainer{
+    height: 100px;
+  }
+  #numberResultsContainer{
+    font-size: 0.7em;
+  }
+  
+}
+
+@media screen and (max-width: 350px){
+  
+  #cardContentContainer h2 {
+    font-size: 0.80em;
+    width: 90%;
+  }
+  #cardContentContainer h4 {
+    font-size: 0.580em;
+  }
+  #HomeBackimgContainer img {
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    margin-right: -8px;
+  }
+  #HomcardContainer{
+    height: 95px;
+  }
+  #numberResultsContainer{
+    font-size: 0.7em;
   }
 }

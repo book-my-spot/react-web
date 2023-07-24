@@ -7,6 +7,7 @@ import Card1 from './CardItems/Card1/Card1';
 import Card2 from './CardItems/Card2/Card2';
 import Card3 from './CardItems/Card3/Card3';
 import axios from 'axios';
+import {CAROUSEL_AND_FILTER_DATA_BASE_URL} from "../apiUrls";
 import { useState, useEffect } from 'react';
 
 const Carousel = () => {
@@ -34,7 +35,7 @@ const Carousel = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        'https://cnhjhmy5w5.execute-api.ap-southeast-2.amazonaws.com/dev/config',
+        CAROUSEL_AND_FILTER_DATA_BASE_URL
       );
       setCarouselData(response.data.onboarding);
     } catch (error) {
@@ -44,7 +45,7 @@ const Carousel = () => {
 
   return (
     <div className='main-Container'>
-      <div className='carousel-Container'>
+      <section className='carousel-Container'>
         {carouselData !== null ? (
           <Slider {...settings} className='slider-Container' ref={sliderRef}>
             <Card1 card1data={carouselData[0]} />
@@ -54,7 +55,7 @@ const Carousel = () => {
         ) : (
           <p>Loading data...</p>
         )}
-      </div>
+      </section>
     </div>
   );
 };

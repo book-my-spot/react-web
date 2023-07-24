@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import './Card2.css';
 import backgroundImg2 from './../../../Images/hair_cut.svg';
 
-function Card2(props) {
-  const { onNextSlide, card2data } = props;
+function Card2({onNextSlide, card2data}) {
 
   const handleNext = () => {
     onNextSlide();
