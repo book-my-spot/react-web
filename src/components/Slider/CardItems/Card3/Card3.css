@@ -44,3 +44,21 @@
   color: rgb(217, 181, 1);
   box-shadow: none;
 }
+
+
+
+@media screen and (max-width: 365px){
+   
+  #card3ImgContainer img {
+    width: 290px;
+  }
+
+  #card3Contentcontainer button {
+    width: 290px;
+    height: 40px; 
+  }
+  #card3Contentcontainer{
+    font-size: 1.2rem;
+  }
+
+}

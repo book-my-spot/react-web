@@ -44,10 +44,10 @@ const Carousel = () => {
   };
 
   return (
-    <div className='main-Container'>
-      <section className='carousel-Container'>
+    <div className='mainContainer'>
+      <section className='carouselContainer'>
         {carouselData !== null ? (
-          <Slider {...settings} className='slider-Container' ref={sliderRef}>
+          <Slider {...settings} className='sliderContainer' ref={sliderRef}>
             <Card1 card1data={carouselData[0]} />
             <Card2 onNextSlide={handleNextSlide} card2data={carouselData[1]} />
             <Card3 card3data={carouselData[2]} />

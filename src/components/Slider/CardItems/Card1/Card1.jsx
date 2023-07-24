@@ -9,9 +9,9 @@ function Card1({card1data}) {
 
   return (
     <>
-      <div className='card-Container' id='card1Container'>
-        <div className='card-Img-Container' id='card1ImgContainer'>
-          <div className='card-content-Container' id='card1contentContainer'>
+      <div className='cardContainer' id='card1Container'>
+        <div className='cardImgContainer' id='card1ImgContainer'>
+          <div className='cardcontentContainer' id='card1contentContainer'>
             <h2>
               {titleParts[0]}
               {greetingEmoji}

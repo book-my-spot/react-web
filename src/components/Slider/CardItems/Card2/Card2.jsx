@@ -11,11 +11,11 @@ function Card2({onNextSlide, card2data}) {
 
   return (
     <>
-      <div className='card-Container' id='card2Container'>
-        <div className='card-Img-Container' id='card2ImgContainer'>
+      <div className='cardContainer' id='card2Container'>
+        <div className='cardImgContainer' id='card2ImgContainer'>
           <img src={backgroundImg2} alt='haircutimg' srcSet='' />
         </div>
-        <div className='card-Content-container' id='card2Contentcontainer'>
+        <div className='cardContentcontainer' id='card2Contentcontainer'>
           <h2>{card2data.title}</h2>
           <button onClick={handleNext}>Next</button>
         </div>
