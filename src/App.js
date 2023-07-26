@@ -11,8 +11,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' exact element={<Carousel />} />
-          <Route path='/home' exact element={<Home />} />
-          <Route path='/services' exact element={<ServiceHome />} />
+          <Route path='home' element={<Home />} />
+          <Route path='home/services/:id' element={<ServiceHome/>} />
+          {/* <Route path='services' exact element={<ServiceHome />} /> */}
         </Routes>
       </Router>
     </>

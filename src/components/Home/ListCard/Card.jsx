@@ -8,9 +8,12 @@ import { faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
 function Card({ properties }) {
+  // console.log(properties);
   let shopName = properties.name;
   let shopAddress = properties.address;
   let image = properties.image_url;
+   
+  // console.log(typeof(id));
   // let shopDistance = properties.distance;
   // let shopRatings = properties.ratings;
   // console.log(properties);
@@ -63,7 +66,8 @@ Card.propTypes = {
   properties: PropTypes.shape({
     name: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
-    image_url: PropTypes.string
+    image_url: PropTypes.string,
+    
     // distance: PropTypes.number.isRequired,
     // ratings: PropTypes.number.isRequired,
   }).isRequired,
