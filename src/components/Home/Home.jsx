@@ -8,6 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Filterbar from '../Filterbar/Filterbar';
+import { NavLink } from 'react-router-dom';
+
+
 
 function Home() {
   const [showFilter, setShowFilter] = useState(false);
@@ -68,7 +71,11 @@ function Home() {
           <main>
             <ul>
             {listdata.map((element) => {
-              return  <li key={element.id}><Card properties={element}/></li>;
+              return  <li key={element.id}>
+                <NavLink to={`services/${element.id}`} className='servicesLink'>
+                <Card properties={element}/>
+                </NavLink>
+                </li>;
             })}
             </ul>
           </main>
