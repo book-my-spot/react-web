@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from './ServiceCard'
 import axios from "axios";
-import { SERVICE_DATA_BASE_URL } from '../apiUrls';
+import { SERVICES_DATA } from '../apiUrls';
 import { useParams } from 'react-router-dom';
 
 
@@ -19,7 +19,7 @@ function Services() {
 
     useEffect(() => {
         async function getServiceData() {
-            let response = await axios.get(SERVICE_DATA_BASE_URL);
+            let response = await axios.get(SERVICES_DATA);
             findIdservice(response.data.service_owners);
         }
 
