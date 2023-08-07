@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'; 
-// import haircutImg from "../Images/haircut.svg";
+ 
 import maleServiceProvider from "../Images/maleServiceprovider.png";
 import femaleServiceProvider from "../Images/femaleServiceproviders.jpg";
 

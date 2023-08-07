@@ -8,11 +8,15 @@ const rawImgnames = [serviceImg,haircutImg];
 
 function ServiceCard({serviceProperties}) {
   const serviceName = serviceProperties.name;
-  
   const bgImg = rawImgnames.find((image)=>image.split('/')[3].split('.')[0]+".svg"==serviceProperties.image_name);
- 
+  function handleProviders(){
+     
+  }
+
+
+
     return (
-    <div className="serviceCardContainer" id='serviceCardContainer'>
+    <div className="serviceCardContainer" id='serviceCardContainer' onClick={handleProviders}>
       <div className="serviceCardimgContainer" id='serviceCardimgContainer'>
         
         <img src={bgImg} alt="servicesimg" />

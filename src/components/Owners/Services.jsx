@@ -11,7 +11,7 @@ function Services() {
     const id = useParams();
 
 
-    function findIdservice(data) {
+    function findidService(data) {
 
         const serviceOwners = data.find((serviceItem) => serviceItem.id == id.id);
         setServices(serviceOwners.services);
@@ -20,7 +20,7 @@ function Services() {
     useEffect(() => {
         async function getServiceData() {
             let response = await axios.get(SERVICES_DATA);
-            findIdservice(response.data.service_owners);
+            findidService(response.data.service_owners);
         }
 
         getServiceData();
