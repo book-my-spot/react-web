@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from './ServiceCard'
 import axios from "axios";
-import { SERVICE_DATA_BASE_URL } from '../apiUrls';
+import { SERVICES_DATA } from '../apiUrls';
 import { useParams } from 'react-router-dom';
 
 
@@ -11,7 +11,7 @@ function Services() {
     const id = useParams();
 
 
-    function findIdservice(data) {
+    function findidService(data) {
 
         const serviceOwners = data.find((serviceItem) => serviceItem.id == id.id);
         setServices(serviceOwners.services);
@@ -19,8 +19,8 @@ function Services() {
 
     useEffect(() => {
         async function getServiceData() {
-            let response = await axios.get(SERVICE_DATA_BASE_URL);
-            findIdservice(response.data.service_owners);
+            let response = await axios.get(SERVICES_DATA);
+            findidService(response.data.service_owners);
         }
 
         getServiceData();

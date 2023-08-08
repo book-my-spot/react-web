@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import axios from 'axios';
 import Card from './ListCard/Card';
-import { CAROUSEL_AND_FILTER_DATA_BASE_URL, LIST_DATA_BASE_URL } from '../apiUrls';
+import { CAROUSEL_AND_FILTER_DATA_BASE_URL, SERVICES_LIST_DATA } from '../apiUrls';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -35,7 +35,7 @@ function Home() {
 
   const fetchListData = async () => {
     try {
-      const response = await axios.get(LIST_DATA_BASE_URL);
+      const response = await axios.get(SERVICES_LIST_DATA);
       setListdata(response.data.service_owners);
       // console.log(response.data);
     } catch (error) {

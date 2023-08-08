@@ -1,53 +1,31 @@
-
-#mainServiceContainer{
-    background-color: rgba(235, 234, 234, 0.216);
-    height: 100vh;
-    overflow: auto;
-}
-
-
-#serviceHomeheading{
-  
-    margin: 0px;
-    text-align: center;
-    font-weight: 500;
-    padding-top: 25px;
-    font-size: 1.2em;
-}
-
-
-#servicesTopContainer{
+#providersTopContainer{
     margin-top: 10px;
-    
     width: 100vw;
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
 
-
-#servicesTopContainer h4{
+#providersTopContainer h4{
     font-weight: 400;
 }
 
-#servicesTopContainer span{
+#providersTopContainer span{
     color: rgba(0, 0, 0, 0.72);
     font-size: 0.85em;
 }
 
-#servicesContainer{
+#providersCardsContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
     padding: 10px;
 }
 
-
-#serviceCardContainer{
-    
+#providersCardContainer{
     margin:12px;
-    width: 88px;
+    width: 90px;
     border-radius: 10px;
-    height: 90px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,19 +38,15 @@
              5px 5px 5px #fefefecd;
 }
 
-#serviceCardimgContainer{
-  
+#providersCardimgContainer{
     width: 90%;  
     display: flex;
     align-items: center;
     justify-content: center;  
-    margin: 3px;
-   
+    margin-bottom: 7px;
+    /* background-color: red; */
 }
-#serviceCardContainer span{
-    margin-top: 7px;
-}
-#serviceCardContainer:hover{
-    background-color: rgba(255, 52, 7, 0.924);
-    color: white;
+#providersCardimgContainer img{
+    width: 70px;
+    height: 65px;
 }
