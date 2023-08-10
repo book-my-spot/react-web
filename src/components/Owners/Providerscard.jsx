@@ -6,6 +6,7 @@ import femaleServiceProvider from "../Images/femaleServiceproviders.jpg";
 
 
 function Providerscard({providersProperties}) {
+ 
   const providerName = providersProperties.name;
   const image = providersProperties.image;
   const gender = providersProperties.gender;

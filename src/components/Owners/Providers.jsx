@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Providerscard from './Providerscard'
 import { BASE_URL } from '../apiUrls'
-import axios from "axios";
+import axios from "axios"; 
+import { useServiceContext } from './ServiceContextProvider';
 import { useParams } from 'react-router-dom';
 import "./Providers.css";
 
@@ -10,7 +11,9 @@ function Providers() {
 
    const id = useParams();
    const [providers,setProviders] = useState(null);
-
+   const {services} = useServiceContext();
+   
+   console.log(services);
 
    useEffect(()=>{
      
