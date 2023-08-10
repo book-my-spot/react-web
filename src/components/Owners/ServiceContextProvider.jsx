@@ -9,14 +9,12 @@ export function useServiceContext() {
 }
 
 function ServiceContextProvider({ children }) {
-  const [services, setServices] = useState(null);
+  const [servicesContext, setservicesContext] = useState(null);
 
-  const handleservicemapping = (serviceId) => {
-    console.log("log from service main", serviceId);
-  };
-
+  console.log(servicesContext);
+  
   return (
-    <ServiceContext.Provider value={{ services, setServices, handleservicemapping }}>
+    <ServiceContext.Provider value={{ servicesContext, setservicesContext}}>
       {children}
     </ServiceContext.Provider>
   );

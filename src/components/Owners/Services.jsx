@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ServiceCard from './ServiceCard'
+import { useServiceContext } from './ServiceContextProvider';
 import axios from "axios";
 import { SERVICES_DATA } from '../apiUrls';
 import { useParams } from 'react-router-dom';
@@ -9,7 +10,8 @@ function Services() {
 
     const [services, setServices] = useState(null);
     const id = useParams();
-
+    const {setservicesContext} = useServiceContext();
+  
 
     function handleservicemapping(serviceId){
      console.log("log from service main",serviceId);
@@ -21,7 +23,11 @@ function Services() {
         setServices(serviceOwners.services);
         
     }
-    // console.log(services);
+
+    function handlServiceClean(){
+        setservicesContext(null);
+    }
+    
     useEffect(() => {
         async function getServiceData() {
             let response = await axios.get(SERVICES_DATA);
@@ -45,8 +51,9 @@ function Services() {
                         return <ServiceCard serviceProperties={service} key={service.id} Onhandleservicemapping={handleservicemapping}/>
                     })
                 ) : (<p>loading data</p>)}
-
+           
             </div>
+            <button onClick={handlServiceClean}>clear</button>
         </>
     )
 }

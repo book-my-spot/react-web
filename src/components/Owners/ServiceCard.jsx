@@ -12,11 +12,13 @@ function ServiceCard({ serviceProperties}) {
    
   const bgImg = rawImgnames.find((image) => image.split('/')[3].split('.')[0] + ".svg" == serviceProperties.image_name);
 
-  const {setServices} = useServiceContext();
+  const {setservicesContext} = useServiceContext();
 
   function handleProviders() {
-    setServices(serviceId);
+    setservicesContext(serviceId);
   }
+
+
   
 
   return (
