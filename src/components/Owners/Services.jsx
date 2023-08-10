@@ -53,7 +53,7 @@ function Services() {
                 ) : (<p>loading data</p>)}
            
             </div>
-            <button onClick={handlServiceClean}>clear</button>
+            <button onClick={handlServiceClean} id='clearServicesBtn'>clear</button>
         </>
     )
 }

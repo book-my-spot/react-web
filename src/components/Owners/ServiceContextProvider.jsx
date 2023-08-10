@@ -10,9 +10,6 @@ export function useServiceContext() {
 
 function ServiceContextProvider({ children }) {
   const [servicesContext, setservicesContext] = useState(null);
-
-  console.log(servicesContext);
-  
   return (
     <ServiceContext.Provider value={{ servicesContext, setservicesContext}}>
       {children}
