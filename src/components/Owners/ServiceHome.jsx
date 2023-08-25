@@ -1,7 +1,7 @@
-import React from 'react'
-import Services from './Services'
-import "./Services.css"
-import Providers from './Providers'
+import React from 'react';
+import Services from './Services';
+import "./Services.css";
+import Providers from './Providers';
 import  ServiceContextProvider from './ServiceContextProvider';
 
 function ServiceHome() {
@@ -13,9 +13,10 @@ function ServiceHome() {
           <Services/>
        <Providers />
           </>
-     
         </ServiceContextProvider>
-     
+        <div id="serviceMainbuttoncontainer">
+        <button>Continue</button>          
+        </div>
     </div>
   )
 }
