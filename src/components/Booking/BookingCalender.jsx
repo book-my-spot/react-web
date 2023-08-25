@@ -7,7 +7,7 @@ import './BookingCalendar.css';
 const BookingCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const today = new Date();
-  const maxSelectableDate = addWeeks(today, 1.5);
+  const maxSelectableDate = addWeeks(today, 2);
   
   const handleDateChange = (date) => {
     console.log(date);

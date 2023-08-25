@@ -9,6 +9,7 @@ function BookingHome() {
     <h1 id='mainBookingHometxt'>Booking</h1>  
     <h3 id='AppointmentMaintxt'>Appointment</h3>
      <BookinCalender/>
+     <span id='SelectedServiceBooking'>Haircut</span>
     <BookingTime/>
     </div>
   )
