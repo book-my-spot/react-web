@@ -88,3 +88,20 @@
 #clearServicesBtn:active{
  opacity: 60%;
 }
+
+#serviceMainbuttoncontainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#serviceMainbuttoncontainer button{
+    padding: 12px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: red;
+    color: white;
+    width: 250px;
+}
+#serviceMainbuttoncontainer button:active{
+    opacity: 60%;
+}
