@@ -37,7 +37,7 @@ function Home() {
     try {
       const response = await axios.get(SERVICES_LIST_DATA);
       setListdata(response.data.service_owners);
-      // console.log(response.data);
+       
     } catch (error) {
       console.log(error);
     }
