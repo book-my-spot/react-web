@@ -10,8 +10,9 @@ export function useServiceContext() {
 
 function ServiceContextProvider({ children }) {
   const [servicesContext, setservicesContext] = useState(null);
+  const [selectedProvider,setselectedProvider] = useState(null);
   return (
-    <ServiceContext.Provider value={{ servicesContext, setservicesContext}}>
+    <ServiceContext.Provider value={{ servicesContext, setservicesContext,selectedProvider,setselectedProvider}}>
       {children}
     </ServiceContext.Provider>
   );

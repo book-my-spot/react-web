@@ -9,7 +9,7 @@ import "./Providers.css";
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext } = useServiceContext();
+  const { servicesContext ,selectedProvider} = useServiceContext();
 
   useEffect(() => {
     async function getServiceProviders() {
@@ -24,7 +24,10 @@ function Providers() {
     const filteredData = data.services.filter(service => service.id === servicesContext);
     return filteredData;
   }
-
+  
+  function handleServiceProvidermapping(){
+    console.log(selectedProvider);
+  }
 
   return (
     <>
@@ -33,21 +36,25 @@ function Providers() {
         <span>View All</span>
       </div>
       <div id="providersCardsContainer">
-      {providers ? (
-  servicesContext ? (
-    providers
-      .filter(provider => findFilterData(provider).length > 0)
-      .map((provider) => (
-        <Providerscard providersProperties={provider} key={provider.id} />            
-      ))
-  ) : (
-    providers.map((provider) => (
-      <Providerscard providersProperties={provider} key={provider.id} />            
-    ))
-  )
-) : (
-  <p>Loading</p>
-)}
+        {providers ? (
+          servicesContext ? (
+            providers
+              .filter(provider => findFilterData(provider).length > 0)
+              .map((provider) => (
+                <Providerscard providersProperties={provider} key={provider.id}/>
+              ))
+          ) : (
+            providers.map((provider) => (
+              <Providerscard providersProperties={provider} key={provider.id} />
+            ))
+          )
+        ) : (
+          <p>Loading</p>
+        )} 
+     
+      </div>
+      <div id="serviceMainbuttoncontainer">
+        <button  onClick={handleServiceProvidermapping}>Continue</button>
       </div>
     </>
   )

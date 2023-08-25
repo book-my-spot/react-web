@@ -15,7 +15,13 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Carousel />} />
           <Route path='home' element={<Home />} />
-          <Route path='home/services/:id' element={<ServiceHome />} />
+          
+          <Route path='home/services/:id' element={
+        
+          <ServiceHome />
+         
+          } 
+           />
           <Route path='home/booking' element={<BookingHome />} />
         </Routes>
       </Router>

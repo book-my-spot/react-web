@@ -11,20 +11,14 @@ function Services() {
     const [services, setServices] = useState(null);
     const id = useParams();
     const {setservicesContext} = useServiceContext();
-  
-
-    function handleservicemapping(serviceId){
-     console.log("log from service main",serviceId);
-    }
 
     function findidService(data) {
-
         const serviceOwners = data.find((serviceItem) => serviceItem.id == id.id);
         setServices(serviceOwners.services);
-        
     }
 
     function handlServiceClean(){
+        console.log(`called`);
         setservicesContext(null);
     }
     
@@ -48,7 +42,7 @@ function Services() {
             <div className="servicesContainer" id="servicesContainer">
                 {services ? (
                     services.map((service) => {
-                        return <ServiceCard serviceProperties={service} key={service.id} Onhandleservicemapping={handleservicemapping}/>
+                        return <ServiceCard serviceProperties={service} key={service.id} />
                     })
                 ) : (<p>loading data</p>)}
            
