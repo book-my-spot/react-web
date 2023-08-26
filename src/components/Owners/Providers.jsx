@@ -4,12 +4,13 @@ import { BASE_URL } from '../apiUrls'
 import axios from "axios";
 import { useServiceContext } from './ServiceContextProvider';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./Providers.css";
 
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext ,selectedProvider} = useServiceContext();
+  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId} = useServiceContext();
 
   useEffect(() => {
     async function getServiceProviders() {
@@ -24,10 +25,11 @@ function Providers() {
     const filteredData = data.services.filter(service => service.id === servicesContext);
     return filteredData;
   }
-  
-  function handleServiceProvidermapping(){
-    console.log(selectedProvider);
-  }
+  function handlServiceClean(){
+    setSelectedServiceId(null);
+    setservicesContext(null);
+    setselectedProviderId(null);
+}
 
   return (
     <>
@@ -51,10 +53,14 @@ function Providers() {
         ) : (
           <p>Loading</p>
         )} 
-     
+      </div>
+      <div className="clearallBtncontainer">
+      <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
       </div>
       <div id="serviceMainbuttoncontainer">
-        <button  onClick={handleServiceProvidermapping}>Continue</button>
+        <Link to={`/home/booking?provider=${selectedProvider}&service=${servicesContext}`}>
+        <button>Continue</button>
+        </Link>
       </div>
     </>
   )
