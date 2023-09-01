@@ -58,7 +58,7 @@ function Providers() {
       <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
       </div>
       <div id="serviceMainbuttoncontainer">
-        <Link to={`/home/booking?provider=${selectedProvider}&service=${servicesContext}`}>
+        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}`}>
         <button>Continue</button>
         </Link>
       </div>
