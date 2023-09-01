@@ -5,7 +5,6 @@ import femaleServiceProvider from "../Images/femaleServiceproviders.jpg";
 
 
 function Bookingprovider({ providerProperties }) {
-  console.log(providerProperties);
   const providerName = providerProperties.name;
   const image = providerProperties.image;
   const gender = providerProperties.gender;

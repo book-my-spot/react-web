@@ -38,3 +38,13 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.noSlottxt{
+    /* background-color: red; */
+  width: 50vw;
+}
+#selected{
+    background-color: rgba(245, 48, 48, 0.857);
+    color: white;
+    border: none;
+}

@@ -21,9 +21,6 @@ function ServiceContextProvider({ children }) {
 }
 
 ServiceContextProvider.propTypes = {
-  children: PropTypes.shape({
-    children: PropTypes.node
-  }),
+  children: PropTypes.node, 
 };
-
 export default ServiceContextProvider;

@@ -20,9 +20,6 @@ function BookingHome() {
   const id = useParams();
 
   useEffect(() => {
-
-
-
     let getservicesdata = async () => {
       let servicedata = await axios.get(SERVICES_DATA);
       return servicedata.data.service_owners;
@@ -57,14 +54,17 @@ function BookingHome() {
     <div>
       <h1 id='mainBookingHometxt'>Booking</h1>
       <h3 id='AppointmentMaintxt'>Appointment</h3>
-      <BookinCalender />
-      <span id='SelectedServiceBooking'>{servicedata}</span>
-      <BookingTime />
-      {providerdata?(
-        <Bookingprovider providerProperties={providerdata} />
-      ):(
+      {providerdata ? (
+        <>
+          <BookinCalender providerProperties={providerdata} />
+          <span id='SelectedServiceBooking'>{servicedata}</span>
+          <BookingTime providerProperties={providerdata} />
+          <Bookingprovider providerProperties={providerdata} />
+        </>
+      ) : (
         <p>loading</p>
       )}
+
     </div>
   )
 }

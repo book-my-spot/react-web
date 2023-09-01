@@ -9,7 +9,7 @@
     font-weight: 400;
 }
 #SelectedServiceBooking{
-    background-color: red;
+    background-color: rgba(248, 40, 40, 0.857);
     padding: 6px;
     margin: 8px;
     color: white;
