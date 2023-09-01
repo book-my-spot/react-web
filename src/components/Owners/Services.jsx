@@ -4,7 +4,6 @@ import axios from "axios";
 import { SERVICES_DATA } from '../apiUrls';
 import { useParams } from 'react-router-dom';
 
-
 function Services() {
 
     const [services, setServices] = useState(null);
