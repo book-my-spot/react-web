@@ -8,7 +8,7 @@ function BookingTime({ providerProperties }) {
   const AfternoonSlots = [];
   const EveningSlots = [];
   const [selectedTimeslot,setselectedTimeslot] = useState(null);
-
+  
   bookingSlots.forEach(slot => {
     if (slot.slot_group === 'Morning') {
       MorningSlots.push(slot.time);
@@ -39,7 +39,7 @@ function BookingTime({ providerProperties }) {
               <span>Afternoon</span>
               <ul>
                 {AfternoonSlots.map((time, index) => (
-                  <li key={index}>{time}</li>
+                  <li key={index} id={selectedTimeslot==time?'selected':''}  onClick={()=>setselectedTimeslot(time)}>{time}</li>
                 ))}
               </ul>
             </>
@@ -52,7 +52,7 @@ function BookingTime({ providerProperties }) {
               <span>Evening</span>
               <ul>
                 {EveningSlots.map((time, index) => (
-                  <li key={index}>{time}</li>
+                  <li key={index} id={selectedTimeslot==time?'selected':''}  onClick={()=>setselectedTimeslot(time)}>{time}</li>
                 ))}
               </ul>
             </>
@@ -66,9 +66,6 @@ function BookingTime({ providerProperties }) {
 BookingTime.propTypes = {
   providerProperties: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    gender: PropTypes.string.isRequired,
     slots: PropTypes.arrayOf(PropTypes.shape({
       slot_group: PropTypes.string.isRequired,
       time: PropTypes.string.isRequired,

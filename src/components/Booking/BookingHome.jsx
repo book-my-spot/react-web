@@ -8,6 +8,7 @@ import Bookingprovider from './Bookingprovider';
 import { SERVICES_DATA, BASE_URL } from '../apiUrls';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
+import BookingContextProvider from './BookingContextProvider';
 
 
 function BookingHome() {
@@ -56,10 +57,12 @@ function BookingHome() {
       <h3 id='AppointmentMaintxt'>Appointment</h3>
       {providerdata ? (
         <>
+          <BookingContextProvider>
           <BookinCalender providerProperties={providerdata} />
           <span id='SelectedServiceBooking'>{servicedata}</span>
           <BookingTime providerProperties={providerdata} />
           <Bookingprovider providerProperties={providerdata} />
+          </BookingContextProvider>
         </>
       ) : (
         <p>loading</p>
