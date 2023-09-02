@@ -4,6 +4,7 @@ import BookinCalender from "./BookingCalender";
 import { useLocation } from 'react-router-dom';
 import './BookingHome.css'
 import { useEffect } from 'react';
+
 import Bookingprovider from './Bookingprovider';
 import { SERVICES_DATA, BASE_URL } from '../apiUrls';
 import axios from "axios";

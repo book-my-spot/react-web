@@ -1,66 +1,77 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import "./BookingTime.css";
+import { useBookingContext } from './BookingContextProvider';
 import PropTypes from 'prop-types';
 
-function BookingTime({ providerProperties }) {
-  const bookingSlots = providerProperties.slots;
-  const MorningSlots = [];
-  const AfternoonSlots = [];
-  const EveningSlots = [];
-  const [selectedTimeslot,setselectedTimeslot] = useState(null);
-  
-  bookingSlots.forEach(slot => {
-    if (slot.slot_group === 'Morning') {
-      MorningSlots.push(slot.time);
-    } else if (slot.slot_group === 'Afternoon') {
-      AfternoonSlots.push(slot.time);
-    } else if (slot.slot_group === 'Evening') {
-      EveningSlots.push(slot.time);
-    }
-  });
+function BookingTime() {
+  const [selectedTimeslot, setselectedTimeslot] = useState(null);
+  const { daySlotMapping } = useBookingContext();
+
+  useEffect(() => {
+     
+  }, [daySlotMapping]);
   return (
     <div>
-      <div id="mainMorningTimecontainer">
-          {MorningSlots.length !== 0 && (
-            <>
-              <span>Morning</span>
-              <ul>
-                {MorningSlots.map((time, index) => (
-                  <li key={index} id={selectedTimeslot==time?'selected':''}  onClick={()=>setselectedTimeslot(time)}>{time}</li>
-                ))}
-              </ul>
-            </>
-          )
-          }
-      </div>
-      <div id="mainAfternoonTimecontainer">
-          {AfternoonSlots.length !== 0 && (
-            <>
-              <span>Afternoon</span>
-              <ul>
-                {AfternoonSlots.map((time, index) => (
-                  <li key={index} id={selectedTimeslot==time?'selected':''}  onClick={()=>setselectedTimeslot(time)}>{time}</li>
-                ))}
-              </ul>
-            </>
-          )
-          }
-      </div>
-      <div id="mainEveningTimecontainer">
-          {EveningSlots.length !== 0 && (
-            <>
-              <span>Evening</span>
-              <ul>
-                {EveningSlots.map((time, index) => (
-                  <li key={index} id={selectedTimeslot==time?'selected':''}  onClick={()=>setselectedTimeslot(time)}>{time}</li>
-                ))}
-              </ul>
-            </>
-          )
-          }
-      </div>
+      {daySlotMapping.length > 0 ? (
+        <>
+          <div id="mainMorningTimecontainer">
+            <span>Morning</span>
+            <ul>
+              {daySlotMapping
+                .filter(slot => slot.slot_group === 'Morning')
+                .map(time => (
+                  <li
+                    key={time.time}
+                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    onClick={() => setselectedTimeslot(time.time)}
+                  >
+                    {time.time}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div id="mainAfternoonTimecontainer">
+            <span>Afternoon</span>
+            <ul>
+              {daySlotMapping
+                .filter(slot => slot.slot_group === 'Afternoon')
+                .map(time => (
+                  <li
+                    key={time.time}
+                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    onClick={() => setselectedTimeslot(time.time)}
+                  >
+                    {time.time}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div id="mainEveningTimecontainer">
+            <span>Evening</span>
+            <ul>
+              {daySlotMapping
+                .filter(slot => slot.slot_group === 'Evening')
+                .map(time => (
+                  <li
+                    key={time.time}
+                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    onClick={() => setselectedTimeslot(time.time)}
+                  >
+                    {time.time}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
-  )
+  );
 }
 
 BookingTime.propTypes = {

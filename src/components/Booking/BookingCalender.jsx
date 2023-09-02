@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
 import 'react-datepicker/dist/react-datepicker.css';
-import { addWeeks } from 'date-fns';
+import { addWeeks} from 'date-fns';
 import './BookingCalendar.css';
 import { useBookingContext } from './BookingContextProvider';
 
@@ -23,10 +23,11 @@ const BookingCalendar = ({ providerProperties }) => {
           days_of_week: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
           time: day.time
         });
-      } else if (day.days_of_week === 'None') {
+      } else if (day.days_of_week === 'NONE') {
+        console.log(day.time);
         WeekdaysDetails.push({
           slot_group: day.slot_group,
-          days_of_week: days_of_week,
+          days_of_week: [],
           time: day.time,
         });
       } else {
@@ -43,7 +44,9 @@ const BookingCalendar = ({ providerProperties }) => {
   }, [providerSlots, setWeekDaysDetails]);
 
   const handleDateChange = (date) => {
-    console.log(date);
+   
+    // console.log(selectedDay);
+    // console.log(selectedDay.substring(0,3));
     setSelectedDate(date);
   };
 
