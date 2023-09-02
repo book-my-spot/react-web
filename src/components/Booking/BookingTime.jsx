@@ -68,7 +68,7 @@ function BookingTime() {
           </div>
         </>
       ) : (
-        <p>Loading...</p>
+        <p>No slots</p>
       )}
     </div>
   );
