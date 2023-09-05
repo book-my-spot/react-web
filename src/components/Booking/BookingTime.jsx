@@ -71,7 +71,7 @@ function BookingTime() {
               }
             </ul>
           </div>
-          <button onClick={()=>setselectedTimeslot([])}>clear</button>
+          <button onClick={()=>setselectedTimeslot([])}  id='btnTimeslotsClear'>Clear Slots</button>
         </>
       ) : (
         <p>No slots</p>
