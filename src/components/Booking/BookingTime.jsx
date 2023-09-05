@@ -5,10 +5,17 @@ import { useBookingContext } from './BookingContextProvider';
 import PropTypes from 'prop-types';
 
 function BookingTime() {
-  const [selectedTimeslot, setselectedTimeslot] = useState(null);
+  const [selectedTimeslot, setselectedTimeslot] = useState([]);
   const { daySlotMapping } = useBookingContext();
-
-
+  
+  function addTimeslots(time){
+    if(selectedTimeslot.includes(time)){
+      return;
+    }
+    setselectedTimeslot([...selectedTimeslot,time]);
+  }
+  
+  
   return (
     <div>
       {daySlotMapping.length > 0 ? (
@@ -22,7 +29,7 @@ function BookingTime() {
                   <li
                     key={time.time}
                     id={selectedTimeslot === time.time ? 'selected' : ''}
-                    onClick={() => setselectedTimeslot(time.time)}
+                    onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}
                   </li>
@@ -39,7 +46,7 @@ function BookingTime() {
                   <li
                     key={time.time}
                     id={selectedTimeslot === time.time ? 'selected' : ''}
-                    onClick={() => setselectedTimeslot(time.time)}
+                    onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}
                   </li>
@@ -56,7 +63,7 @@ function BookingTime() {
                   <li
                     key={time.time}
                     id={selectedTimeslot === time.time ? 'selected' : ''}
-                    onClick={() => setselectedTimeslot(time.time)}
+                    onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}
                   </li>
@@ -64,6 +71,7 @@ function BookingTime() {
               }
             </ul>
           </div>
+          <button onClick={()=>setselectedTimeslot([])}>clear</button>
         </>
       ) : (
         <p>No slots</p>
