@@ -10,13 +10,13 @@ export function useBookingContext() {
 }
 
 function BookingContextProvider({ children }) {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(findTodayDate());
   const [weekDaysDetails, setWeekDaysDetails] = useState(null);
-
   const [daySlotMapping, setDaySlotMapping] = useState([]);
-
+ 
   useEffect(() => {
     if (weekDaysDetails && selectedDate) {
+     
       const mappedSlots = weekDaysDetails
         .filter(element => element.days_of_week.includes(format(selectedDate, 'EEEE').toUpperCase().substring(0, 3)))
         .map(element => ({
@@ -27,9 +27,15 @@ function BookingContextProvider({ children }) {
       setDaySlotMapping(mappedSlots);
     }
   }, [selectedDate, weekDaysDetails]);
+   
+  function findTodayDate(){
+    let date = new Date();
+    return date;
+  }
+
 
   return (
-    <BookingContext.Provider value={{ selectedDate, setSelectedDate, setWeekDaysDetails, daySlotMapping }}>
+    <BookingContext.Provider value={{ selectedDate, setSelectedDate, setWeekDaysDetails, daySlotMapping}}>
       {children}
     </BookingContext.Provider>
   )

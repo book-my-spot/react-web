@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import "./BookingTime.css";
 import { useBookingContext } from './BookingContextProvider';
 import PropTypes from 'prop-types';
@@ -8,9 +8,7 @@ function BookingTime() {
   const [selectedTimeslot, setselectedTimeslot] = useState(null);
   const { daySlotMapping } = useBookingContext();
 
-  useEffect(() => {
-     
-  }, [daySlotMapping]);
+
   return (
     <div>
       {daySlotMapping.length > 0 ? (

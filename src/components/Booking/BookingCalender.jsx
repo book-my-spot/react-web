@@ -15,7 +15,7 @@ const BookingCalendar = ({ providerProperties }) => {
   useEffect(() => {
     let WeekdaysDetails = [];
     let days_of_week = [];
-
+  
     providerSlots.forEach(day => {
       if (day.days_of_week === 'All') {
         WeekdaysDetails.push({
@@ -24,7 +24,7 @@ const BookingCalendar = ({ providerProperties }) => {
           time: day.time
         });
       } else if (day.days_of_week === 'NONE') {
-        console.log(day.time);
+         
         WeekdaysDetails.push({
           slot_group: day.slot_group,
           days_of_week: [],
@@ -41,12 +41,11 @@ const BookingCalendar = ({ providerProperties }) => {
     });
 
     setWeekDaysDetails(WeekdaysDetails);
-  }, [providerSlots, setWeekDaysDetails]);
+  }, [providerSlots]);
 
   const handleDateChange = (date) => {
+    
    
-    // console.log(selectedDay);
-    // console.log(selectedDay.substring(0,3));
     setSelectedDate(date);
   };
 

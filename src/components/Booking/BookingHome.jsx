@@ -19,6 +19,7 @@ function BookingHome() {
   const serviceparams = searchParams.get('service');
   const [servicedata, setServicedata] = useState(null);
   const [providerdata, setProviderdata] = useState(null);
+
   const id = useParams();
 
   useEffect(() => {
