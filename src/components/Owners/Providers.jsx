@@ -4,12 +4,13 @@ import { BASE_URL } from '../apiUrls'
 import axios from "axios";
 import { useServiceContext } from './ServiceContextProvider';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./Providers.css";
 
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext } = useServiceContext();
+  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId} = useServiceContext();
 
   useEffect(() => {
     async function getServiceProviders() {
@@ -24,7 +25,11 @@ function Providers() {
     const filteredData = data.services.filter(service => service.id === servicesContext);
     return filteredData;
   }
-
+  function handlServiceClean(){
+    setSelectedServiceId(null);
+    setservicesContext(null);
+    setselectedProviderId(null);
+}
 
   return (
     <>
@@ -33,21 +38,29 @@ function Providers() {
         <span>View All</span>
       </div>
       <div id="providersCardsContainer">
-      {providers ? (
-  servicesContext ? (
-    providers
-      .filter(provider => findFilterData(provider).length > 0)
-      .map((provider) => (
-        <Providerscard providersProperties={provider} key={provider.id} />            
-      ))
-  ) : (
-    providers.map((provider) => (
-      <Providerscard providersProperties={provider} key={provider.id} />            
-    ))
-  )
-) : (
-  <p>Loading</p>
-)}
+        {providers ? (
+          servicesContext ? (
+            providers
+              .filter(provider => findFilterData(provider).length > 0)
+              .map((provider) => (
+                <Providerscard providersProperties={provider} key={provider.id}/>
+              ))
+          ) : (
+            providers.map((provider) => (
+              <Providerscard providersProperties={provider} key={provider.id} />
+            ))
+          )
+        ) : (
+          <p>Loading</p>
+        )} 
+      </div>
+      <div className="clearallBtncontainer">
+      <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
+      </div>
+      <div id="serviceMainbuttoncontainer">
+        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}`}>
+        <button>Continue</button>
+        </Link>
       </div>
     </>
   )

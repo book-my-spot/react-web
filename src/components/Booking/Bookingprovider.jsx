@@ -1,23 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useServiceContext } from './ServiceContextProvider';
 import maleServiceProvider from "../Images/maleServiceprovider.png";
 import femaleServiceProvider from "../Images/femaleServiceproviders.jpg";
 
 
-function Providerscard({ providersProperties }) {
-
-  const {setselectedProvider,selectedProviderId,setselectedProviderId} = useServiceContext();
-  const providerName = providersProperties.name;
-  const image = providersProperties.image;
-  const gender = providersProperties.gender;
-  function handleprovidervalue(){
-    setselectedProviderId(providerName); 
-    setselectedProvider(providerName);
-  }
+function Bookingprovider({ providerProperties }) {
+  const providerName = providerProperties.name;
+  const image = providerProperties.image;
+  const gender = providerProperties.gender;
+  
   return (
     <>
-      <div className={`providersCardContainer ${selectedProviderId==providerName ? 'selected':''}`} id='providersCardContainer' onClick={handleprovidervalue}>
+      <div className="providersCardContainer" id='providersCardContainer'>
         <div id='providersCardimgContainer'>
           {image ? (
             <img src={image} alt="" />
@@ -36,8 +30,8 @@ function Providerscard({ providersProperties }) {
 }
 
 
-Providerscard.propTypes = {
-  providersProperties: PropTypes.shape({
+Bookingprovider.propTypes = {
+    providerProperties: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     image: PropTypes.string,
@@ -46,4 +40,4 @@ Providerscard.propTypes = {
 };
 
 
-export default Providerscard
+export default Bookingprovider

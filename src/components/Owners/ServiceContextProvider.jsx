@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { createContext, useContext, useState } from 'react';
-import PropTypes from 'prop-types';  
+import PropTypes from 'prop-types';
 
 const ServiceContext = createContext();
 
@@ -10,17 +10,17 @@ export function useServiceContext() {
 
 function ServiceContextProvider({ children }) {
   const [servicesContext, setservicesContext] = useState(null);
+  const [selectedProvider, setselectedProvider] = useState(null);
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
+  const [selectedProviderId, setselectedProviderId] = useState(null);
   return (
-    <ServiceContext.Provider value={{ servicesContext, setservicesContext}}>
+    <ServiceContext.Provider value={{ servicesContext, setservicesContext, selectedProvider, setselectedProvider, selectedServiceId, setSelectedServiceId,selectedProviderId,setselectedProviderId }}>
       {children}
     </ServiceContext.Provider>
   );
 }
 
 ServiceContextProvider.propTypes = {
-  children: PropTypes.shape({
-    children:PropTypes.node
-  }), 
+  children: PropTypes.node, 
 };
-
 export default ServiceContextProvider;

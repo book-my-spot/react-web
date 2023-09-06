@@ -1,32 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import ServiceCard from './ServiceCard'
-import { useServiceContext } from './ServiceContextProvider';
+import ServiceCard from './ServiceCard';
 import axios from "axios";
 import { SERVICES_DATA } from '../apiUrls';
 import { useParams } from 'react-router-dom';
-
 
 function Services() {
 
     const [services, setServices] = useState(null);
     const id = useParams();
-    const {setservicesContext} = useServiceContext();
-  
-
-    function handleservicemapping(serviceId){
-     console.log("log from service main",serviceId);
-    }
-
     function findidService(data) {
-
         const serviceOwners = data.find((serviceItem) => serviceItem.id == id.id);
         setServices(serviceOwners.services);
-        
     }
 
-    function handlServiceClean(){
-        setservicesContext(null);
-    }
+
     
     useEffect(() => {
         async function getServiceData() {
@@ -48,12 +35,12 @@ function Services() {
             <div className="servicesContainer" id="servicesContainer">
                 {services ? (
                     services.map((service) => {
-                        return <ServiceCard serviceProperties={service} key={service.id} Onhandleservicemapping={handleservicemapping}/>
+                        return <ServiceCard serviceProperties={service} key={service.id} />
                     })
                 ) : (<p>loading data</p>)}
            
             </div>
-            <button onClick={handlServiceClean} id='clearServicesBtn'>clear</button>
+            
         </>
     )
 }
