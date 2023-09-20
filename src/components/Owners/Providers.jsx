@@ -10,7 +10,7 @@ import "./Providers.css";
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId,selectedProviderId} = useServiceContext();
+  const { servicesContext ,selectedProvider,selectedServiceId,setservicesContext,setselectedProviderId,setSelectedServiceId,selectedProviderId} = useServiceContext();
 
   useEffect(() => {
     async function getServiceProviders() {
@@ -22,7 +22,7 @@ function Providers() {
   }, []);
 
   function findFilterData(data) {
-    const filteredData = data.services.filter(service => service.id === servicesContext);
+    const filteredData = data.services.filter(service => service.id === selectedServiceId);
     return filteredData;
   }
   function handlServiceClean(){
@@ -58,7 +58,7 @@ function Providers() {
       <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
       </div>
       <div id="serviceMainbuttoncontainer">
-        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}&provider_id=${selectedProviderId}`}>
+        <Link to={`booking?provider=${selectedProvider}&service=${selectedServiceId}&provider_id=${selectedProviderId}&service_name=${servicesContext}`}>
         <button>Continue</button>
         </Link>
       </div>

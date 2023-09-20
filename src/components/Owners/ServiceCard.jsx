@@ -15,7 +15,7 @@ function ServiceCard({ serviceProperties }) {
   const bgImg = rawImgnames.find((image) => image.split('/')[3].split('.')[0] + ".svg" === serviceProperties.image_name);
 
   function handleProviders() {
-    setservicesContext(serviceId);
+    setservicesContext(serviceName);
     setSelectedServiceId(serviceId);
   } 
   
