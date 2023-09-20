@@ -13,6 +13,7 @@ function BookingContextProvider({ children }) {
   const [selectedDate, setSelectedDate] = useState(findTodayDate());
   const [weekDaysDetails, setWeekDaysDetails] = useState(null);
   const [daySlotMapping, setDaySlotMapping] = useState([]);
+  const [selectedTimeslot,setselectedTimeslot] = useState([]);
  
   useEffect(() => {
     if (weekDaysDetails && selectedDate) {
@@ -36,7 +37,7 @@ function BookingContextProvider({ children }) {
 
 
   return (
-    <BookingContext.Provider value={{ selectedDate, setSelectedDate, setWeekDaysDetails, daySlotMapping}}>
+    <BookingContext.Provider value={{ selectedDate, setSelectedDate, setWeekDaysDetails, daySlotMapping,setselectedTimeslot,selectedTimeslot}}>
       {children}
     </BookingContext.Provider>
   )

@@ -1,13 +1,13 @@
 
-import React, { useState} from 'react';
+import React from 'react';
 import "./BookingTime.css";
 import { useBookingContext } from './BookingContextProvider';
 import PropTypes from 'prop-types';
 
 function BookingTime() {
-  const [selectedTimeslot, setselectedTimeslot] = useState([]);
-const { daySlotMapping } = useBookingContext();
-console.log(selectedTimeslot);
+  
+const { daySlotMapping,setselectedTimeslot,selectedTimeslot } = useBookingContext();
+ 
 
 function addTimeslots(time, duration, slot_index) {
   const existingTimeslot = selectedTimeslot.find(slot => slot.time === time);

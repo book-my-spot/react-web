@@ -10,7 +10,7 @@ import "./Providers.css";
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId} = useServiceContext();
+  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId,selectedProviderId} = useServiceContext();
 
   useEffect(() => {
     async function getServiceProviders() {
@@ -58,7 +58,7 @@ function Providers() {
       <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
       </div>
       <div id="serviceMainbuttoncontainer">
-        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}`}>
+        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}&provider_id=${selectedProviderId}`}>
         <button>Continue</button>
         </Link>
       </div>
