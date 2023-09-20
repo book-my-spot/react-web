@@ -22,8 +22,9 @@ function BookingContextProvider({ children }) {
         .map(element => ({
           slot_group: element.slot_group,
           time: element.time,
+          duration:element.duration,
+          slot_index:element.slot_index
         }));
-        
       setDaySlotMapping(mappedSlots);
     }
   }, [selectedDate, weekDaysDetails]);

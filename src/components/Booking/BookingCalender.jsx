@@ -11,7 +11,7 @@ const BookingCalendar = ({ providerProperties }) => {
   const today = new Date();
   const maxSelectableDate = addWeeks(today, 2);
   const providerSlots = providerProperties.slots;
-
+  // console.log(providerSlots);
   useEffect(() => {
     let WeekdaysDetails = [];
     let days_of_week = [];
@@ -21,7 +21,9 @@ const BookingCalendar = ({ providerProperties }) => {
         WeekdaysDetails.push({
           slot_group: day.slot_group,
           days_of_week: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
-          time: day.time
+          time: day.time,
+          slot_index:day.slot_index,
+          duration:day.duration
         });
       } else if (day.days_of_week === 'NONE') {
          
@@ -29,6 +31,8 @@ const BookingCalendar = ({ providerProperties }) => {
           slot_group: day.slot_group,
           days_of_week: [],
           time: day.time,
+          slot_index:day.slot_index,
+          duration:day.duration
         });
       } else {
         days_of_week = day.days_of_week;
@@ -36,6 +40,8 @@ const BookingCalendar = ({ providerProperties }) => {
           slot_group: day.slot_group,
           days_of_week: days_of_week.split(','),
           time: day.time,
+          slot_index:day.slot_index,
+          duration:day.duration
         });
       }
     });

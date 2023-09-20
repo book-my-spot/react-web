@@ -6,14 +6,21 @@ import PropTypes from 'prop-types';
 
 function BookingTime() {
   const [selectedTimeslot, setselectedTimeslot] = useState([]);
-  const { daySlotMapping } = useBookingContext();
+const { daySlotMapping } = useBookingContext();
+console.log(selectedTimeslot);
 
-  function addTimeslots(time){
-    if(selectedTimeslot.includes(time)){
-      return;
-    }
-    setselectedTimeslot([...selectedTimeslot,time]);
+function addTimeslots(time, duration, slot_index) {
+  const existingTimeslot = selectedTimeslot.find(slot => slot.time === time);
+  if (existingTimeslot) {
+    return;
   }
+  setselectedTimeslot([...selectedTimeslot, {
+    time: time,
+    duration: duration,
+    slot_index: slot_index
+  }]);
+}
+
   
   
   return (
@@ -25,13 +32,13 @@ function BookingTime() {
             <ul>
               {daySlotMapping
                 .filter(slot => slot.slot_group === 'Morning')
-                .map(time => (
+                .map(slot_info => (
                   <li
-                    key={time.time}
-                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
-                    onClick={() =>addTimeslots(time.time)}
+                    key={slot_info.time}
+                    id={selectedTimeslot.find(slot => slot.time === slot_info.time)? 'selected' : ''}
+                    onClick={() =>addTimeslots(slot_info.time,slot_info.duration,slot_info.slot_index)}
                   >
-                    {time.time}
+                    {slot_info.time}
                   </li>
                 ))
               }
@@ -42,13 +49,14 @@ function BookingTime() {
             <ul>
               {daySlotMapping
                 .filter(slot => slot.slot_group === 'Afternoon')
-                .map(time => (
+                .map(slot_info => (
+                
                   <li
-                    key={time.time}
-                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
-                    onClick={() =>addTimeslots(time.time)}
+                    key={slot_info.time}
+                    id={selectedTimeslot.find(slot => slot.time === slot_info.time)? 'selected' : ''}
+                    onClick={() =>addTimeslots(slot_info.time,slot_info.duration,slot_info.slot_index)}
                   >
-                    {time.time}
+                    {slot_info.time}
                   </li>
                 ))
               }
@@ -59,13 +67,13 @@ function BookingTime() {
             <ul>
               {daySlotMapping
                 .filter(slot => slot.slot_group === 'Evening')
-                .map(time => (
+                .map(slot_info => (
                   <li
-                    key={time.time}
-                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
-                    onClick={() =>addTimeslots(time.time)}
+                    key={slot_info.time}
+                    id={selectedTimeslot.find(slot => slot.time === slot_info.time)? 'selected' : ''}
+                    onClick={() =>addTimeslots(slot_info.time,slot_info.duration,slot_info.slot_index)}
                   >
-                    {time.time}
+                    {slot_info.time}
                   </li>
                 ))
               }
