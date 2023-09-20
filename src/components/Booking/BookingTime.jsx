@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 function BookingTime() {
   const [selectedTimeslot, setselectedTimeslot] = useState([]);
   const { daySlotMapping } = useBookingContext();
-  
+
   function addTimeslots(time){
     if(selectedTimeslot.includes(time)){
       return;
@@ -28,7 +28,7 @@ function BookingTime() {
                 .map(time => (
                   <li
                     key={time.time}
-                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
                     onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}
@@ -45,7 +45,7 @@ function BookingTime() {
                 .map(time => (
                   <li
                     key={time.time}
-                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
                     onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}
@@ -62,7 +62,7 @@ function BookingTime() {
                 .map(time => (
                   <li
                     key={time.time}
-                    id={selectedTimeslot === time.time ? 'selected' : ''}
+                    id={selectedTimeslot.includes(time.time) ? 'selected' : ''}
                     onClick={() =>addTimeslots(time.time)}
                   >
                     {time.time}

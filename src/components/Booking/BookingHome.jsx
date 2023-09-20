@@ -64,6 +64,9 @@ function BookingHome() {
           <span id='SelectedServiceBooking'>{servicedata}</span>
           <BookingTime providerProperties={providerdata} />
           <Bookingprovider providerProperties={providerdata} />
+          <div id="bookingBtnContainer">
+          <button id='bookingControllerBtn'>Continue</button>
+          </div>
           </BookingContextProvider>
         </>
       ) : (
