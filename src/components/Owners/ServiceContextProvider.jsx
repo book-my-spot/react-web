@@ -14,6 +14,7 @@ function ServiceContextProvider({ children }) {
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [selectedProviderId, setselectedProviderId] = useState(null);
   console.log(servicesContext,selectedServiceId);
+ 
   return (
     <ServiceContext.Provider value={{ servicesContext, setservicesContext, selectedProvider, setselectedProvider, selectedServiceId, setSelectedServiceId,selectedProviderId,setselectedProviderId }}>
       {children}

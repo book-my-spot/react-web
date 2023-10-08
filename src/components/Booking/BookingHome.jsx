@@ -18,12 +18,22 @@ function BookingHome() {
   const searchParams = new URLSearchParams(location.search);
   const providerparams = searchParams.get('provider');
   const serviceName = searchParams.get("service_name");
+  const [duration, setDuration] = useState(null);
   const [providerdata, setProviderdata] = useState(null);
   const id = useParams();
 
+  function handleduration(data) {
+    // console.log(data);
+    data.map((item) => {
+      if (item.name === providerparams) {
+        setDuration(item.duration);
+      }
+    })
+  }
   useEffect(() => {
     async function getServiceProviders() {
       const response = await axios.get(`${BASE_URL}/getServiceProvider?service_owner_id=${id.id}`);
+      handleduration(response.data.service_providers.Items);
       return response.data.service_providers.Items;
     }
 
@@ -43,11 +53,11 @@ function BookingHome() {
       {providerdata ? (
         <>
           <BookingContextProvider>
-          <BookinCalender providerProperties={providerdata} />
-          <span id='SelectedServiceBooking'>{serviceName}</span>
-          <BookingTime providerProperties={providerdata} />
-          <Bookingprovider providerProperties={providerdata} />
-          <Booking_Submit/>
+            <BookinCalender providerProperties={providerdata} />
+            <span id='SelectedServiceBooking'>{serviceName}</span>
+            <BookingTime providerProperties={providerdata} />
+            <Bookingprovider providerProperties={providerdata} />
+            <Booking_Submit  duration={duration}/>
           </BookingContextProvider>
         </>
       ) : (

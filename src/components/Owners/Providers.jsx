@@ -11,7 +11,6 @@ function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
   const { servicesContext ,selectedProvider,selectedServiceId,setservicesContext,setselectedProviderId,setSelectedServiceId,selectedProviderId} = useServiceContext();
-
   useEffect(() => {
     async function getServiceProviders() {
       const response = await axios.get(`${BASE_URL}/getServiceProvider?service_owner_id=${id.id}`);
@@ -30,7 +29,7 @@ function Providers() {
     setservicesContext(null);
     setselectedProviderId(null);
 }
-
+ 
   return (
     <>
       <div id='providersTopContainer'>

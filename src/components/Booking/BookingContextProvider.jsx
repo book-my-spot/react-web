@@ -15,6 +15,7 @@ function BookingContextProvider({ children }) {
   const [daySlotMapping, setDaySlotMapping] = useState([]);
   const [selectedTimeslot,setselectedTimeslot] = useState([]);
  
+
   useEffect(() => {
     if (weekDaysDetails && selectedDate) {
      
