@@ -10,7 +10,7 @@ import { BASE_URL } from '../apiUrls';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 import BookingContextProvider from './BookingContextProvider';
-import Booking_Submit from './Booking_Submit';
+import BookingSubmit from './BookingSubmit';
 
 
 function BookingHome() {
@@ -57,7 +57,7 @@ function BookingHome() {
             <span id='SelectedServiceBooking'>{serviceName}</span>
             <BookingTime providerProperties={providerdata} />
             <Bookingprovider providerProperties={providerdata} />
-            <Booking_Submit  duration={duration}/>
+            <BookingSubmit  duration={duration}/>
           </BookingContextProvider>
         </>
       ) : (

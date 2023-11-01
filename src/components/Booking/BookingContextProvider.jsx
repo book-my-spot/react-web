@@ -10,7 +10,7 @@ export function useBookingContext() {
 }
 
 function BookingContextProvider({ children }) {
-  const [selectedDate, setSelectedDate] = useState(findTodayDate());
+  const [selectedDate, setSelectedDate] = useState(getTodaysDate());
   const [weekDaysDetails, setWeekDaysDetails] = useState(null);
   const [daySlotMapping, setDaySlotMapping] = useState([]);
   const [selectedTimeslot,setselectedTimeslot] = useState([]);
@@ -31,7 +31,7 @@ function BookingContextProvider({ children }) {
     }
   }, [selectedDate, weekDaysDetails]);
    
-  function findTodayDate(){
+  function getTodaysDate(){
     let date = new Date();
     return date;
   }

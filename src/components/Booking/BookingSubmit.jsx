@@ -2,10 +2,10 @@ import React from 'react'
 import { useBookingContext } from './BookingContextProvider'
 import { useLocation, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import {BookingStatusDetails} from "./BookingStatus";
 import axios from 'axios';
 import { BOOKING_URL } from '../apiUrls';
-function Booking_Submit({duration}) {
+function BookingSubmit({duration}) {
 
   const location = useLocation();
   const { selectedTimeslot } = useBookingContext();
@@ -43,7 +43,7 @@ function Booking_Submit({duration}) {
       created_date_time: formattedDate,
       updated_date_time: formattedDate,
       slot_indexes: slot_indexes,
-      booking_status: "Pending",
+      booking_status: BookingStatusDetails.Pending,
       services: [
         {
           id: serviceId,
@@ -54,6 +54,7 @@ function Booking_Submit({duration}) {
     }
     try{
       const data = axios.post(BOOKING_URL,bookingData);
+      //This log is to check whether the post request was sucessful or not afterwards will be replaced by a sucessful or error message
       console.log(data);
     }
     catch(err){
@@ -71,9 +72,9 @@ function Booking_Submit({duration}) {
   )
 }
 
-Booking_Submit.propTypes = {
+BookingSubmit.propTypes = {
   duration: PropTypes.number.isRequired, 
 };
 
 
-export default Booking_Submit
+export default BookingSubmit

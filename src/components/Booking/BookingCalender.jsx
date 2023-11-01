@@ -11,7 +11,6 @@ const BookingCalendar = ({ providerProperties }) => {
   const today = new Date();
   const maxSelectableDate = addWeeks(today, 2);
   const providerSlots = providerProperties.slots;
-  // console.log(providerSlots);
   useEffect(() => {
     let WeekdaysDetails = [];
     let days_of_week = [];
@@ -50,8 +49,6 @@ const BookingCalendar = ({ providerProperties }) => {
   }, [providerSlots]);
 
   const handleDateChange = (date) => {
-    
-   
     setSelectedDate(date);
   };
 
