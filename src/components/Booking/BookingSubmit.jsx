@@ -24,7 +24,7 @@ function BookingSubmit({duration}) {
     const date = new Date();
     const options = {
       weekday: 'short',
-      month: 'short',
+      month: 'numeric',
       day: '2-digit',
       year: 'numeric',
       hour: '2-digit',
@@ -34,7 +34,7 @@ function BookingSubmit({duration}) {
     };
   
     const formattedDate = date.toLocaleString(undefined, options);
-  
+    console.log(formattedDate);
     let bookingData = {
       service_provider_id: providerId,
       service_owner_id: service_owner_id,
