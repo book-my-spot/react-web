@@ -7,17 +7,18 @@ import femaleServiceProvider from "../Images/femaleServiceproviders.jpg";
 
 function Providerscard({ providersProperties }) {
 
-  const {setselectedProvider,selectedProviderId,setselectedProviderId} = useServiceContext();
+  const {setselectedProvider,setselectedProviderId,selectedProvider} = useServiceContext();
   const providerName = providersProperties.name;
   const image = providersProperties.image;
   const gender = providersProperties.gender;
+  const providerID = providersProperties.id;
   function handleprovidervalue(){
-    setselectedProviderId(providerName); 
+    setselectedProviderId(providerID); 
     setselectedProvider(providerName);
   }
   return (
     <>
-      <div className={`providersCardContainer ${selectedProviderId==providerName ? 'selected':''}`} id='providersCardContainer' onClick={handleprovidervalue}>
+      <div className={`providersCardContainer ${selectedProvider==providerName ? 'selected':''}`} id='providersCardContainer' onClick={handleprovidervalue}>
         <div id='providersCardimgContainer'>
           {image ? (
             <img src={image} alt="" />

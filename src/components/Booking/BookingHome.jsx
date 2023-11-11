@@ -6,40 +6,34 @@ import './BookingHome.css'
 import { useEffect } from 'react';
 
 import Bookingprovider from './Bookingprovider';
-import { SERVICES_DATA, BASE_URL } from '../apiUrls';
+import { BASE_URL } from '../apiUrls';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 import BookingContextProvider from './BookingContextProvider';
+import BookingSubmit from './BookingSubmit';
 
 
 function BookingHome() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const providerparams = searchParams.get('provider');
-  const serviceparams = searchParams.get('service');
-  const [servicedata, setServicedata] = useState(null);
+  const serviceName = searchParams.get("service_name");
+  const [duration, setDuration] = useState(null);
   const [providerdata, setProviderdata] = useState(null);
   const id = useParams();
 
-  useEffect(() => {
-    let getservicesdata = async () => {
-      let servicedata = await axios.get(SERVICES_DATA);
-      return servicedata.data.service_owners;
-    }
-    getservicesdata().then((data) => {
-
-      let filterservice = data.find((elem) => {
-        return elem.id == id.id
-      });
-      let servicename = filterservice.services.find((service) => service.id == serviceparams);
-      setServicedata(servicename.name);
-    });
-
-  }, [])
-
+  function handleduration(data) {
+    // console.log(data);
+    data.map((item) => {
+      if (item.name === providerparams) {
+        setDuration(item.duration);
+      }
+    })
+  }
   useEffect(() => {
     async function getServiceProviders() {
       const response = await axios.get(`${BASE_URL}/getServiceProvider?service_owner_id=${id.id}`);
+      handleduration(response.data.service_providers.Items);
       return response.data.service_providers.Items;
     }
 
@@ -59,10 +53,11 @@ function BookingHome() {
       {providerdata ? (
         <>
           <BookingContextProvider>
-          <BookinCalender providerProperties={providerdata} />
-          <span id='SelectedServiceBooking'>{servicedata}</span>
-          <BookingTime providerProperties={providerdata} />
-          <Bookingprovider providerProperties={providerdata} />
+            <BookinCalender providerProperties={providerdata} />
+            <span id='SelectedServiceBooking'>{serviceName}</span>
+            <BookingTime providerProperties={providerdata} />
+            <Bookingprovider providerProperties={providerdata} />
+            <BookingSubmit  duration={duration}/>
           </BookingContextProvider>
         </>
       ) : (

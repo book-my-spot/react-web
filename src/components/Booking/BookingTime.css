@@ -52,7 +52,9 @@
     margin: 10px;
     cursor: pointer;
 }
-
+#mainEveningTimecontainer span{
+    margin: 6px;
+}
 
 .noSlottxt{
     /* background-color: red; */
@@ -62,4 +64,15 @@
     background-color: rgba(245, 48, 48, 0.857);
     color: white;
     border: none;
+}
+#btnTimeslotsClear{
+    padding: 8px 16px;
+    margin: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+#btnTimeslotsClear:active{
+    opacity: 60%;
 }
