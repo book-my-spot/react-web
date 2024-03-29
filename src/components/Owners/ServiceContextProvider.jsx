@@ -9,12 +9,13 @@ export function useServiceContext() {
 }
 
 function ServiceContextProvider({ children }) {
-  const [servicesContext, setservicesContext] = useState(null);
+  const [servicesContext, setServicesContext] = useState(null);
   const [selectedProvider, setselectedProvider] = useState(null);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [selectedProviderId, setselectedProviderId] = useState(null);
+ 
   return (
-    <ServiceContext.Provider value={{ servicesContext, setservicesContext, selectedProvider, setselectedProvider, selectedServiceId, setSelectedServiceId,selectedProviderId,setselectedProviderId }}>
+    <ServiceContext.Provider value={{ servicesContext, setServicesContext, selectedProvider, setselectedProvider, selectedServiceId, setSelectedServiceId,selectedProviderId,setselectedProviderId }}>
       {children}
     </ServiceContext.Provider>
   );

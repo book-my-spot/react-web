@@ -8,14 +8,14 @@ import haircutImg from "../Images/haircut.svg";
 const rawImgnames = [serviceImg, haircutImg];
 
 function ServiceCard({ serviceProperties }) {
-  const { selectedServiceId, setservicesContext ,setSelectedServiceId} = useServiceContext();
+  const { selectedServiceId, setServicesContext ,setSelectedServiceId} = useServiceContext();
   
   const serviceName = serviceProperties.name;
   const serviceId = serviceProperties.id;
   const bgImg = rawImgnames.find((image) => image.split('/')[3].split('.')[0] + ".svg" === serviceProperties.image_name);
 
   function handleProviders() {
-    setservicesContext(serviceId);
+    setServicesContext(serviceName);
     setSelectedServiceId(serviceId);
   } 
   

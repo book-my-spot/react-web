@@ -10,8 +10,7 @@ import "./Providers.css";
 function Providers() {
   const id = useParams();
   const [providers, setProviders] = useState(null);
-  const { servicesContext ,selectedProvider,setservicesContext,setselectedProviderId,setSelectedServiceId} = useServiceContext();
-
+  const { servicesContext ,selectedProvider,selectedServiceId,setservicesContext,setselectedProviderId,setSelectedServiceId,selectedProviderId} = useServiceContext();
   useEffect(() => {
     async function getServiceProviders() {
       const response = await axios.get(`${BASE_URL}/getServiceProvider?service_owner_id=${id.id}`);
@@ -22,7 +21,7 @@ function Providers() {
   }, []);
 
   function findFilterData(data) {
-    const filteredData = data.services.filter(service => service.id === servicesContext);
+    const filteredData = data.services.filter(service => service.id === selectedServiceId);
     return filteredData;
   }
   function handlServiceClean(){
@@ -30,7 +29,7 @@ function Providers() {
     setservicesContext(null);
     setselectedProviderId(null);
 }
-
+ 
   return (
     <>
       <div id='providersTopContainer'>
@@ -58,7 +57,7 @@ function Providers() {
       <button onClick={handlServiceClean} id='clearServicesBtn'>clear all</button>
       </div>
       <div id="serviceMainbuttoncontainer">
-        <Link to={`booking?provider=${selectedProvider}&service=${servicesContext}`}>
+        <Link to={`booking?provider=${selectedProvider}&service=${selectedServiceId}&provider_id=${selectedProviderId}&service_name=${servicesContext}`}>
         <button>Continue</button>
         </Link>
       </div>
